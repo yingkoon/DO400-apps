@@ -21,9 +21,17 @@ pipeline {
     stage ('Unit Tests') {
       steps {
         dir ('exchange-cli') {
-         sj "npm run test:unit"
+         sh "npm run test:unit"
         }
       }
+    }
+
+    stage ('Functional Tests') {
+      steps {
+        dir ('exchange-cli') {
+          sh "npm run test:functional"
+        }
+      }      
     }
   }  
 } 
